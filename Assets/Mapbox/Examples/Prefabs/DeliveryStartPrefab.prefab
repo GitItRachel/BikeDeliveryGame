@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114584515627220354}
   m_Layer: 10
   m_Name: DeliveryStartPrefab
-  m_TagString: Untagged
+  m_TagString: Delivery Start
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -109,6 +109,7 @@
 					break;
 				case 2:
 					{
+						Debug.Log("Two Touch Detected");
 						// Store both touches.
 						Touch touchZero = Input.GetTouch(0);
 						Touch touchOne = Input.GetTouch(1);

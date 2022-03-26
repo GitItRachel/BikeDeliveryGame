@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour {
     [SerializeField] private GameObject homepanel;
@@ -56,5 +57,10 @@ public class MenuNavigation : MonoBehaviour {
     public void DisableLeadPanel()
     {
         leaderpanel.SetActive(false);
+    }
+
+    public void MapScene()
+    {
+        SceneManager.LoadScene("MapView");
     }
 }
