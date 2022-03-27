@@ -49,6 +49,7 @@
 				var location = _locations[i];
 				spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
 				spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+				spawnedObject.GetComponent<POIClick>().spawnCount = i + 1;
 			}
 		}
 	}

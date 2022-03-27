@@ -7,6 +7,10 @@ TagManager:
   - Delivery Start
   - Map
   - Game
+  - Delivery End
+  - Start Waypoint
+  - End Waypoint
+  - Directions
   layers:
   - Default
   - TransparentFX

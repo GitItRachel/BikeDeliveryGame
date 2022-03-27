@@ -5,7 +5,6 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 
 public class GameDataStorage : MonoBehaviour {
-
 	[SerializeField]
 	[Geocode]
 	string[] _deliveryStartStrings;

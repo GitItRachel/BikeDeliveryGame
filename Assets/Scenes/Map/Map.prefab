@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4140463682676888
 Transform:
   m_ObjectHideFlags: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _options:
     locationOptions:
-      latitudeLongitude: 41.94075132803112, -87.6379213779556
+      latitudeLongitude: 41.96864, -87.68384
       zoom: 15
     extentOptions:
       extentType: 1
@@ -165,6 +165,7 @@ MonoBehaviour:
   _locationStrings:
   - 41.98755204899509, -87.65440800933789
   - 41.970303, -87.701350
+  - 41.96864, -87.68384
   _spawnScale: 25
   _markerPrefab: {fileID: 1839187062704024, guid: 9b5b1b761a8994c07affd0a05396633b,
     type: 2}
@@ -198,6 +199,7 @@ MonoBehaviour:
   _map: {fileID: 114169997812574750}
   _locationStrings:
   - 41.94075132803112, -87.6379213779556
+  - 41.996137162888466, -87.71092915585916
   - 41.996137162888466, -87.71092915585916
   _spawnScale: 25
   _markerPrefab: {fileID: 1839187062704024, guid: c1712fe55cc71354cb61e715ada9a623,

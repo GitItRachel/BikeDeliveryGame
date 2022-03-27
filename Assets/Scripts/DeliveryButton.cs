@@ -17,6 +17,7 @@ public class DeliveryButton : MonoBehaviour {
     private float deliveryMiles = 0;
     private Vector2 startlocation;
     Text buttonText;
+    [SerializeField] GameObject badgeText;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +42,10 @@ public class DeliveryButton : MonoBehaviour {
                     buttonText.text = "Cancel Delivery";
                 }
                 deliveryTime += Time.deltaTime;
-                deliveryMiles = Vector2.Distance(new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude), startlocation);
+                deliveryMiles = DistanceInKm(startlocation.x, startlocation.y, Input.location.lastData.latitude, Input.location.lastData.longitude);
+                TimeSpan timeSpan = TimeSpan.FromSeconds(deliveryTime);
+                string timerFormatted = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+                badgeText.GetComponentInChildren<Text>().text = "Delivery Kilometers: " + deliveryMiles + "\nDeliveryTime: " + timerFormatted;
             }
             else
             {
@@ -56,6 +60,23 @@ public class DeliveryButton : MonoBehaviour {
                 }
             }
     }
+
+    private float DistanceInKm(float startlat, float startlong, float endlat, float endlong)
+    {
+        float distanceLat = DegreesToRad(endlat - startlat);
+        float distancelong = DegreesToRad(endlong - startlong);
+        startlat = DegreesToRad(startlat);
+        endlat = DegreesToRad(endlat);
+        return (float)(6371 * 2 * Math.Asin(Math.Sqrt(Math.Pow(Math.Sin(distanceLat / 2), 2) + Math.Cos(startlat) * Math.Cos(endlat) * Math.Pow(Math.Sin(distancelong / 2), 2))));
+
+    }
+
+    private float DegreesToRad(float degrees)
+    {
+        return (float)(degrees * Math.PI / 180);
+    }
+
+
 
     /// <summary>
     /// Function Name: CloseToMarker
@@ -87,6 +108,9 @@ public class DeliveryButton : MonoBehaviour {
         isDeliveryStarted = true;
         deliveryTime = 0.0f;
         startlocation = new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude);
+        GameObject.Find("Start Delivery Panel").SetActive(true);
+        badgeText.SetActive(true);
+
     }
 
     public void StopDelivery()
